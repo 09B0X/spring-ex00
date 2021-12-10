@@ -45,9 +45,8 @@
 		SET
 			title = #{title},
 			content = #{content},
-			writer = #{writer}
-			inserted = #{inserted}
-			updated = #{updated}
+			writer = #{writer},
+			updated = NOW()
 		WHERE
 			id = #{id}
 	</update>
