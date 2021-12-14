@@ -32,6 +32,10 @@
             <input type="text" required id="input2" class="form-control" name="password" value="${sessionScope.loggedInMember.password }">
           </div>
           <div class="form-group">
+          	<label for="input5">닉네임</label>
+          	<input type="text" required id="input5" class="form-control" name="nickName" value="${sessionScope.loggedInMember.nickName }">
+          </div>
+          <div class="form-group">
             <label for="input3">이메일</label>
             <input type="email" required id="input3" class="form-control" name="email" value="${sessionScope.loggedInMember.email }">
           </div>
