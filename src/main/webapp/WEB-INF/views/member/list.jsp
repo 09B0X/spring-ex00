@@ -33,7 +33,7 @@
               <th>이메일</th>
               <th>주소</th>
               <th>가입일시</th>
-              <th>작성글수</th>
+              <th><i class="far fa-sticky-note"></i></th>
             </tr>
           </thead>
           <tbody>
