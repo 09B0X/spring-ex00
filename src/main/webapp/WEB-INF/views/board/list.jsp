@@ -29,7 +29,7 @@
 								<i class="fab fa-slack-hash"></i>
 							</th>
 							<th>제목</th>
-							<th>작성자</th>
+							<th><i class="fas fa-user"></i></th>
 							<th>작성일</th>
 						</tr>
 					</thead>
@@ -40,8 +40,8 @@
 								<td>
 									<a href="get?id=${board.id }"> ${board.title } </a>
 								</td>
-								<td>${board.nickName }</td>
-								<td>${board.inserted }</td>
+								<td><c:out value="${board.nickName }"/></td>
+								<td><c:out value="${board.customInserted }"/></td>
 							</tr>
 						</c:forEach>
 					</tbody>
