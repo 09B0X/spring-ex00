@@ -29,7 +29,9 @@
 								<i class="fab fa-slack-hash"></i>
 							</th>
 							<th>제목</th>
-							<th><i class="fas fa-user"></i></th>
+							<th>
+								<i class="fas fa-user"></i>
+							</th>
 							<th>작성일</th>
 						</tr>
 					</thead>
@@ -40,8 +42,12 @@
 								<td>
 									<a href="get?id=${board.id }"> ${board.title } </a>
 								</td>
-								<td><c:out value="${board.nickName }"/></td>
-								<td><c:out value="${board.customInserted }"/></td>
+								<td>
+									<c:out value="${board.nickName }" />
+								</td>
+								<td>
+									<c:out value="${board.customInserted }" />
+								</td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -49,6 +55,44 @@
 			</div>
 		</div>
 	</div>
+
+	<!--  pagination -->
+	<nav aria-label="Page navigation example">
+		<ul class="pagination justify-content-center">
+			<c:if test="${pageInfo.hasPrevButton }">
+				<c:url value="/board/list" var="pageLink">
+					<c:param name="page" value="${pageInfo.leftPageNumber - 1 }"></c:param>
+				</c:url>
+				
+				<li class="page-item">
+					<a class="page-link" href="${pageLink }" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+					</a>
+				</li>
+			</c:if>
+
+			<c:forEach begin="${pageInfo.leftPageNumber }" end="${pageInfo.rightPageNumber }" var="pageNumber">
+				<c:url value="/board/list" var="pageLink">
+					<c:param name="page" value="${pageNumber }"></c:param>
+				</c:url>
+				<li class="page-item ${pageInfo.currentPage == pageNumber ? 'active' : '' }">
+					<a class="page-link" href="${pageLink }">${pageNumber }</a>
+				</li>
+			</c:forEach>
+
+			<c:if test="${pageInfo.hasNextButton }">
+				<c:url value="/board/list" var="pageLink">
+					<c:param name="page" value="${pageInfo.rightPageNumber + 1 }"></c:param>
+				</c:url>
+				
+				<li class="page-item">
+					<a class="page-link" href="${pageLink }" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+					</a>
+				</li>
+			</c:if>
+		</ul>
+	</nav>
 
 	<!-- modal -->
 	<c:if test="${not empty result }">
@@ -74,7 +118,7 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-	
+
 	<script>
 		$(document).ready(function() {
 			if (history.state == null) {

@@ -39,6 +39,7 @@ FROM
 ORDER BY
 	id DESC;
 
+
 SELECT m.id, m.password, m.email, m.address, m.inserted, m.nickName, count(b.id)
 FROM Member m LEFT JOIN Board b ON m.id = b.writer
 GROUP BY m.id

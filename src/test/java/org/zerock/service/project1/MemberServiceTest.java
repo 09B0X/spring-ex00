@@ -9,7 +9,7 @@ import org.zerock.mapper.project1.MemberMapper;
 
 import lombok.Setter;
 @Service
-public class MemberService {
+public class MemberServiceTest {
 
 	@Setter(onMethod_ = @Autowired)
 	private MemberMapper mapper;
