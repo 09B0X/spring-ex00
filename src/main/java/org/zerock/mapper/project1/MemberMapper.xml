@@ -39,18 +39,32 @@
 			m.inserted DESC
 	</select>
 
+	<select id="selectByNickName" resultType="org.zerock.domain.project1.MemberVO">
+		SELECT
+			id,
+			password,
+			nickName,
+			email,
+			address,
+			inserted
+		FROM
+			Member
+		WHERE
+			nickName = #{nickName}
+	</select>
+
 	<select id="select" resultType="org.zerock.domain.project1.MemberVO">
 		SELECT
-		id,
-		password,
-		nickName,
-		email,
-		address,
-		inserted
+			id,
+			password,
+			nickName,
+			email,
+			address,
+			inserted
 		FROM
-		Member
+			Member
 		WHERE
-		id = #{id}
+			id = #{id}
 	</select>
 
 	<insert id="insert">

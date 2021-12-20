@@ -83,4 +83,11 @@ public class MemberService {
 		
 		return member != null;
 	}
+
+	public boolean hasNickName(String nickName) {
+
+		MemberVO member = mapper.selectByNickName(nickName);
+		
+		return member != null;
+	}
 }

@@ -20,4 +20,6 @@ public interface MemberMapper {
 	public List<MemberVO> listPage(@Param("from") Integer from, @Param("items") Integer numberPerPage);
 
 	public Integer getCountRows();
+
+	public MemberVO selectByNickName(String nickName);
 }

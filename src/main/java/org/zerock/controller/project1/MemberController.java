@@ -27,6 +27,18 @@ public class MemberController {
 	@Setter(onMethod_ = @Autowired)
 	private MemberService service;
 	
+	@RequestMapping("/nickNameCheck")
+	@ResponseBody
+	public String nickNameCheck(String nickName) {
+		boolean has = service.hasNickName(nickName);
+		
+		if (has) {
+			return "unable";
+		} else {
+			return "able";
+		}
+	}
+	
 	@RequestMapping("/idcheck") 
 	@ResponseBody
 	public String idcheck(String id) {
