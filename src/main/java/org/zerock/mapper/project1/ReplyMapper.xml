@@ -5,6 +5,33 @@
 
 <mapper namespace="org.zerock.mapper.project1.ReplyMapper">
 
+	<delete id="deleteByMemberId">
+		DELETE FROM Reply WHERE memberId = #{memberId} 
+	</delete>
+
+	<delete id="deleteByBoardId">
+		DELETE FROM Reply WHERE boardId = #{id}
+	</delete>
+	
+	<delete id="delete">
+		DELETE FROM Reply WHERE id = #{id}
+	</delete>
+	
+	<update id="update">
+		UPDATE Reply
+		SET
+			reply = #{reply},
+			updated = NOW()
+		WHERE
+			id = #{id}
+	</update>
+
+	<select id="selectById" resultType="org.zerock.domain.project1.ReplyVO">
+		SELECT id, boardId, memberId, reply, inserted, updated
+		FROM Reply
+		WHERE id = #{id}
+	</select>
+	
 	<select id="list" resultType="org.zerock.domain.project1.ReplyVO">
 		SELECT
 			r.id,

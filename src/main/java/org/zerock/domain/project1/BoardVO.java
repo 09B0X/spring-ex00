@@ -20,6 +20,8 @@ public class BoardVO {
 	private LocalDateTime updated;
 	private String nickName;
 	
+	private Integer replyCount;
+	
 	public String getCustomInserted() {
 		// 현재일시
 		LocalDateTime now = LocalDateTime.now(ZoneId.of("+09:00"));
