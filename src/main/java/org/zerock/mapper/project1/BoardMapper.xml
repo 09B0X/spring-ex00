@@ -5,6 +5,10 @@
   
 <mapper namespace="org.zerock.mapper.project1.BoardMapper">
 
+	<select id="selectByMemberId" resultType="int">
+		SELECT id FROM Board WHERE writer = #{memberId}
+	</select>
+	
 	<delete id="deleteByMemberId">
 		DELETE FROM Board WHERE writer = #{memberId}
 	</delete>
@@ -22,7 +26,8 @@
 			b.inserted,
 			b.updated,
 			m.nickName,
-		    count(r.id) replyCount
+		    count(r.id) replyCount,
+		    (SELECT EXISTS (SELECT * FROM File WHERE boardId = b.id)) hasFile <!-- result = 0 or 1 -->
 		FROM
 			Board b
 				LEFT JOIN 
@@ -85,7 +90,7 @@
 		SET
 			title = #{title},
 			content = #{content},
-			writer = #{writer},
+			writer = #{writer}, <!-- 이 줄을 없애면 업데이트 가능 -->
 			updated = NOW()
 		WHERE
 			id = #{id}

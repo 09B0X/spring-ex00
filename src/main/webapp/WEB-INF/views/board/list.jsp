@@ -41,6 +41,9 @@
 								<td>${board.id }</td>
 								<td>
 									<a href="get?id=${board.id }"> ${board.title } </a>
+									<c:if test="${board.hasFile }">
+										<i class="far fa-image"></i>
+									</c:if>
 									<c:if test="${board.replyCount > 0 }">
 										<i class="far fa-comments">${board.replyCount }</i>
 									</c:if>

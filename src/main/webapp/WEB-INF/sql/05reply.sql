@@ -21,21 +21,10 @@ SELECT * FROM Reply ORDER BY id DESC;
 
 SELECT r.*, m.nickName FROM Reply r JOIN Member m ON r.memberId = m.id;
 
-SELECT
-	b.id,
-	b.title,
-	b.content,
-	b.writer,
-	b.inserted,
-	b.updated,
-	m.nickName,
-    count(r.id) replyCount
-FROM
-	Board b
-		LEFT JOIN 
-	Member m ON b.writer = m.id
-		LEFT JOIN
-	Reply r ON b.id = r.boardId
-GROUP BY b.id
-ORDER BY b.id DESC
-LIMIT 0, 10; 
+UPDATE Reply 
+SET
+	reply = '수정된 댓글',
+    updated = NOW()
+WHERE
+id = 16
+;

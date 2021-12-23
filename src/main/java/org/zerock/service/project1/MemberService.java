@@ -25,6 +25,9 @@ public class MemberService {
 	@Setter(onMethod_ = @Autowired)
 	private BoardMapper boardMapper;
 	
+	@Setter(onMethod_ = @Autowired)
+	private BoardService boardService;
+	
 	public MemberVO read(String id) {
 		return mapper.select(id);
 	}
@@ -51,6 +54,15 @@ public class MemberService {
 		replyMapper.deleteByMemberId(id);
 		
 		// 2. 멤버가 작성한 게시물 지우기
+		// 2.1 멤버가 작성한 게시물 목록 얻고
+		Integer[] boardIds = boardMapper.selectByMemberId(id);
+		
+		// 2.2 게시물 삭제
+		if (boardIds != null) {
+			for (Integer boardId : boardIds) {
+				boardService.remove(boardId);
+			}
+		}
 		boardMapper.deleteByMemberId(id);
 		
 		// 3. 멤버 지우기

@@ -22,6 +22,8 @@ public class BoardVO {
 	
 	private Integer replyCount;
 	
+	private Boolean hasFile;
+	
 	public String getCustomInserted() {
 		// 현재일시
 		LocalDateTime now = LocalDateTime.now(ZoneId.of("+09:00"));
