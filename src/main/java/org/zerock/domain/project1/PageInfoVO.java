@@ -9,6 +9,9 @@ public class PageInfoVO {
 	private Integer currentPage; // 현재 페이지 번호
 	private Integer leftPageNumber; // 페이지네이션 가장 왼쪽 번호
 	private Integer rightPageNumber; // 페이지네이션 가장 오른쪽 번호
-	private Boolean hasPrevButton;
-	private Boolean hasNextButton;
+	private Boolean hasPrevButton; // 이전 페이지 버튼 존재 여부
+	private Boolean hasNextButton; // 다음 페이지 버튼 존재 여부
+	
+	private Boolean hasFrontButton; // 첫 페이지 버튼 존재 여부
+	private Boolean hasEndButton; // 끝 페이지 버튼 존재 여부
 }

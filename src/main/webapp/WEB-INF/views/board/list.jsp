@@ -65,6 +65,19 @@
 	<!--  pagination -->
 	<nav aria-label="Page navigation example">
 		<ul class="pagination justify-content-center">
+		
+			<c:if test="${pageInfo.hasFrontButton }">
+				<c:url value="/board/list" var="pageLink">
+					<c:param name="page" value="1"></c:param>
+				</c:url>
+				
+				<li class="page-item front">
+					<a class="page-link" href="${pageLink }" aria-label="Front">
+						<span aria-hidden="true">&laquo;</span>
+					</a>
+				</li>
+			</c:if>
+			
 			<c:if test="${pageInfo.hasPrevButton }">
 				<c:url value="/board/list" var="pageLink">
 					<c:param name="page" value="${pageInfo.leftPageNumber - 1 }"></c:param>
@@ -72,7 +85,7 @@
 				
 				<li class="page-item">
 					<a class="page-link" href="${pageLink }" aria-label="Previous">
-						<span aria-hidden="true">&laquo;</span>
+						<span aria-hidden="true">&lt;</span>
 					</a>
 				</li>
 			</c:if>
@@ -93,6 +106,18 @@
 				
 				<li class="page-item">
 					<a class="page-link" href="${pageLink }" aria-label="Next">
+						<span aria-hidden="true">&gt;</span>
+					</a>
+				</li>
+			</c:if>
+			
+			<c:if test="${pageInfo.hasEndButton }">
+				<c:url value="/board/list" var="pageLink">
+					<c:param name="page" value="${pageInfo.lastPage}"></c:param>
+				</c:url>
+				
+				<li class="page-item end">
+					<a class="page-link" href="${pageLink }" aria-label="End">
 						<span aria-hidden="true">&raquo;</span>
 					</a>
 				</li>

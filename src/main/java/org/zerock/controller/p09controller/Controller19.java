@@ -20,7 +20,7 @@ public class Controller19 {
 		if (file1 != null) {
 			System.out.println(file1.getOriginalFilename());
 
-			String path = "C:\\Users\\user\\Desktop\\" + file1.getOriginalFilename();
+			String path = "D:\\course\\fileupload\\test\\" + file1.getOriginalFilename();
 			File dest = new File(path);
 
 			try {
