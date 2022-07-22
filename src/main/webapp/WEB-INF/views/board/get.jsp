@@ -151,7 +151,7 @@
 					<div class="form-group">
 						<label for="input2">내용</label>
 						<!-- <input type="text" class="form-control" id="input2" readonly=""> -->
-						<textarea class="form-control" id="input2" readonly>${board.content }</textarea>
+						<textarea class="form-control" rows="10" id="input2" readonly>${board.content }</textarea>
 					</div>
 
 					<c:forEach items="${fileNames }" var="fileName">
